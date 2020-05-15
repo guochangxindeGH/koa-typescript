@@ -1,0 +1,67 @@
+{
+  "DATABASE_REBUILD": false,
+  "DATABASE_CONFIG": {
+    "database": "gcx",
+    "username": "root",
+    "password": "12345678",
+    "host": "localhost",
+    "port": 3306,
+    "dialect": "mysql",
+    "define": {
+      "chartset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      }
+    },
+    "pool": {
+      "max": 5,
+      "min": 0,
+      "acquire": 30000,
+      "idle": 10000
+    },
+    "timestamps": false,
+    "logging": false
+  },
+  "PROMETHEUS_CONFIG": {
+    "host": "172.24.119.63",
+    "port": 9090,
+    "path": "/home/PMonitor/prometheus1/bin",
+    "localPath": "/Users/Jon/Downloads/prometheus-2.7.1.darwin-386"
+  },
+  "ALERT_MANAGER_CONFIG": {
+    "host": "172.24.119.63",
+    "port": 9093,
+    "path": "/home/PMonitor/alertmanager1/bin"
+  },
+  "SYS_KERNEL_HTTP_CONFIG": {
+    "host": "172.24.119.63",
+    "port": 19951
+  },
+  "SYS_KERNEL_CONFIG": {
+    "host": "172.24.119.63",
+    "port": "17751"
+  },
+  "LOG_SERVER_CONFIG": {
+    "host": "172.24.119.63",
+    "port": "4000"
+  },
+  "PROBE_CONFIG": {
+    "port": 18800,
+    "linuxroot": "/home/trade/",
+    "windowsroot": "C:\\cmp\\",
+    "linuxsyslog": "/log/Syslog.log",
+    "windowssyslog": "\\log\\Syslog.log"
+  },
+  "SERVICE_LIST_CONFIG": {
+    "path": "/all.service.list",
+    "partindex": 0,
+    "sysnoindex": 1,
+    "srvgroupindex": 2,
+    "srvindex": 6,
+    "srvnoindex": 7,
+    "ipindex": 8,
+    "ostypeindex": 9,
+    "exchangeindex": 17,
+    "partnoindex": 19
+  }
+}

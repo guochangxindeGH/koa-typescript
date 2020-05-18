@@ -14,7 +14,7 @@ const connectDB = (): void => {
     username : DATABASE_CONFIG.username,
     password : DATABASE_CONFIG.password,
     database : DATABASE_CONFIG.database,
-    entities : [ __dirname + '/entity/*.ts', 'dist/data/entity/*.js'],
+    entities : [ 'src/entity/*.ts'],
     logging  : _PROD_ ? false : true,
     synchronize: true,
   }).then((connect) => {

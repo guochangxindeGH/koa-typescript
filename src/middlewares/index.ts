@@ -1,10 +1,10 @@
-import Koa from 'koa';
+import Koa from "koa";
 import jwt from "koa-jwt";
-import koaBody from 'koa-body';
-import helmet from 'koa-helmet';
-import cors from 'koa-cors';
+import koaBody from "koa-body";
+import helmet from "koa-helmet";
+import cors from "koa-cors";
 
-// import Routes from '../routes'
+import Routes from "../routes";
 
 const Middlewares = (App: Koa) => {
 
@@ -25,8 +25,8 @@ const Middlewares = (App: Koa) => {
         }
     }));
 
-    // App.use(Routes.routes());
-}
+    App.use(Routes.routes());
+};
 
 
 export default Middlewares;

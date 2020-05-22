@@ -1,13 +1,13 @@
-import 'reflect-metadata'
+import "reflect-metadata";
 import {Entity, Column, PrimaryGeneratedColumn} from "typeorm";
 
-@Entity()
+@Entity("k_balls")
 export class Balls {
   @PrimaryGeneratedColumn()  // 自增主键
   id: number = 1;
 
   @Column()
-  issue: string = '';
+  issue: string = "";
 
   @Column()
   red1: number = 1;

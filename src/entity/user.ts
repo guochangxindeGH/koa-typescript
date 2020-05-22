@@ -1,21 +1,21 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { Length, IsEmail } from "class-validator";
 
-@Entity()
+@Entity("k_user")
 export class User {
     @PrimaryGeneratedColumn()  // 自增主键
-    id: number = 1;
+    id: number | undefined;
 
     @Column({
         length: 80
     })
     @Length(10, 80)
-    name: string = '';
+    name: string = "";
 
     @Column({
         length: 100
     })
     @Length(10, 100)
     @IsEmail()
-    email: string = '';
+    email: string = "";
 }

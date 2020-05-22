@@ -5,7 +5,7 @@ import { User } from "../entity/user";
 
 export default class UserController {
 
-    public static async getUsers(ctx: BaseContext): Promise<void> {
+    static async getUsers(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository: Repository<User> = getManager().getRepository(User);
@@ -18,7 +18,7 @@ export default class UserController {
         ctx.body = users;
     }
 
-    public static async getUser(ctx: BaseContext): Promise<void> {
+    static async getUser(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository: Repository<User> = getManager().getRepository(User);
@@ -38,7 +38,7 @@ export default class UserController {
 
     }
 
-    public static async createUser(ctx: BaseContext): Promise<void> {
+    static async createUser(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository: Repository<User> = getManager().getRepository(User);
@@ -55,7 +55,7 @@ export default class UserController {
             // return BAD REQUEST status code and errors array
             ctx.status = 400;
             ctx.body = errors;
-        } else if (await userRepository.findOne({ email: userToBeSaved.email })) {
+        } else if (await userRepository.findOne({ name: userToBeSaved.name })) {
             // return BAD REQUEST status code and email already exists error
             ctx.status = 400;
             ctx.body = "The specified e-mail address already exists";
@@ -68,7 +68,7 @@ export default class UserController {
         }
     }
 
-    public static async updateUser(ctx: BaseContext): Promise<void> {
+    static async updateUser(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository: Repository<User> = getManager().getRepository(User);
@@ -92,7 +92,7 @@ export default class UserController {
             // return a BAD REQUEST status code and error message
             ctx.status = 400;
             ctx.body = "The user you are trying to update doesn't exist in the db";
-        } else if (await userRepository.findOne({ id: Not(Equal(userToBeUpdated.id)), email: userToBeUpdated.email })) {
+        } else if (await userRepository.findOne({ id: Not(Equal(userToBeUpdated.id)), name: userToBeUpdated.name })) {
             // return BAD REQUEST status code and email already exists error
             ctx.status = 400;
             ctx.body = "The specified e-mail address already exists";
@@ -106,7 +106,7 @@ export default class UserController {
 
     }
 
-    public static async deleteUser(ctx: BaseContext): Promise<void> {
+    static async deleteUser(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository = getManager().getRepository(User);
@@ -117,21 +117,24 @@ export default class UserController {
             // return a BAD REQUEST status code and error message
             ctx.status = 400;
             ctx.body = "The user you are trying to delete doesn't exist in the db";
-        } else if (ctx.state.user.email !== userToRemove.email) {
-            // check user's token id and user id are the same
-            // if not, return a FORBIDDEN status code and error message
-            ctx.status = 403;
-            ctx.body = "A user can only be deleted by himself";
-        } else {
+        }
+        // else if (ctx.state.user.name !== userToRemove.name) {
+        //     // check user's token id and user id are the same
+        //     // if not, return a FORBIDDEN status code and error message
+        //     ctx.status = 403;
+        //     ctx.body = "A user can only be deleted by himself";
+        // }
+        else {
             // the user is there so can be removed
             await userRepository.remove(userToRemove);
             // return a NO CONTENT status code
             ctx.status = 204;
+            ctx.body = "delete successfull!";
         }
 
     }
 
-    public static async deleteTestUsers(ctx: BaseContext): Promise<void> {
+    static async deleteTestUsers(ctx: BaseContext): Promise<void> {
 
         // get a user repository to perform operations with user
         const userRepository = getManager().getRepository(User);

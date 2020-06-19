@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
 import { Length, IsEmail } from "class-validator";
 

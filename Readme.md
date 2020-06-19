@@ -24,8 +24,8 @@
 
 9. typeorm ORM框架
 
-10. class-validator 用于Typescript或ES6+的类验证，基于validator.js
+10. class-validator 用于Typescript或ES6+的类验证(对象类型等)，基于validator.js
 
-
+11. reflect-metadata  可以实现对变量操作的函数化，也就是反射
 
 *. RabbitMQ  NodeJS操作消息队列RabbitMQ

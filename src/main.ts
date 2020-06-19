@@ -1,8 +1,9 @@
-
+import "reflect-metadata";
 import Koa from "koa";
 import KoaLogger from "koa-logger";
 import Middlewares from "./middlewares/index";
 import {connectDB } from "./database/conectDB";
+
 // import Router from 'koa-router';
 // const app:Koa = new Koa();
 // const router:Router = new Router();
